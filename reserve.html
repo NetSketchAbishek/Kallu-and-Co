@@ -15,15 +15,6 @@
       --dark-bg: #181818;
       --glass-bg: rgba(255, 255, 255, 0.07);
     }
-    .reserve-button, .mob-reserve-button{
-      background-color: #ff6b35;
-      padding: 12px;
-      border-radius: 50px;
-      font-family: 'Inter', sans-serif;
-    }
-    .reserve-button :hover{
-        color: black;
-    }
 
     html {
       scroll-behavior: smooth;
@@ -78,35 +69,14 @@
     }
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    .menus{
-      display:flex; 
-      justify-content: space-between; 
-      width: 100%;
-    }
-    .menutext{
-      font-family: 'Inter', sans-serif;
-      font-size:x-large;
-      color:white;
-      position: relative;
-      transform: translate(0vw,-100vh);
-
-    }
-    .menubutton{
-      display:block;
-      color:black;
-      border:1px solid black;
-      padding:15px;
-      position: relative;
-      transform: translate(13vw,-25vh);
-      width:fit-content;
-      
-    }
-    .menubutton:hover{
-      transform:translate(13vw,-25vh) scale(1.05);
-      color: white;
-      border:1px solid black;
+    .reserve-button, .mob-reserve-button{
       background-color: #ff6b35;
-      transition: all 0.3s ease-in-out;
+      padding: 12px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+    }
+    .reserve-button :hover{
+        color: black;
     }
 
     .hero-bg-scroll {
@@ -220,6 +190,11 @@
       font-weight: 600;
       margin-bottom: .5rem;
       color: var(--accent-gold);
+    }
+    .menu-item-price {
+      font-size: 1.08rem;
+      color: var(--primary-orange);
+      font-weight: 700;
     }
 
     .feature-grid {
@@ -341,12 +316,13 @@
       transform: translateY(-3px) scale(1.1);
       box-shadow: 0 8px 16px #ff6b3535;
     }
-    
+
     @keyframes pulse {
       0% { box-shadow: 0 8px 25px #25d36655; }
       50% { box-shadow: 0 8px 25px #25d366a0, 0 0 0 12px #25d36633; }
       100% { box-shadow: 0 8px 25px #25d36655; }
     }
+    .whatsapp-float:hover { transform: scale(1.1);}
 
     @media (max-width: 950px) {
       .contact-grid { grid-template-columns: 1fr; gap: 2.2rem;}
@@ -487,11 +463,11 @@
   width:90%;
   margin:auto;   
   border: 1px solid #ff6b35;  
-  border-radius: 5px;
+  border-radius: 30px;
   img{
     height:90%;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 30px;
   width: auto;
   }
 }
@@ -499,6 +475,11 @@
   content:"";
   clear:both;
   display: table;
+}
+form fieldset{
+    border:3px solid #ff6b35;
+    border-radius: 15px;
+    padding:40px;
 }
 #mobileNav { transition: opacity .3s, pointer-events .3s; }
 #mobileNav.open { opacity: 1 !important; pointer-events: auto !important; }
@@ -513,26 +494,6 @@
   .reserve-button{
     visibility: hidden;
   }
-  .menus{
-    display:block;
-  }
-  /*.menubutton{
-      display:block;
-      color:black;
-      border:1px solid black;
-      padding:15px;
-      position: relative;
-      transform: translate(15vw,-15vh);
-      width:fit-content;
-      
-    }
-    .menubutton:hover{
-      transform:translate(15vw,-15vh) scale(1.05);
-      color: white;
-      border:1px solid black;
-      background-color: #ff6b35;
-      transition: all 0.3s ease-in-out;
-    }*/
 }
 
   </style>
@@ -542,17 +503,16 @@
 <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50">
   <div class="container mx-auto flex items-center px-4 py-3 relative">
 
-    <a href="homepage.html" class="text-2xl sm:text-3xl font-bold tracking-wide" style="color:var(--primary-orange)">Kallu & Co</a>
+    <a href="./homepage.html" class="text-2xl sm:text-3xl font-bold tracking-wide" style="color:var(--primary-orange)">Kallu & Co</a>
     
 
     <div class="hidden md:flex flex-row flex-nowrap items-center mx-auto space-x-4 lg:space-x-8">
       <a href="homepage.html" class="nav-link">Home</a>
-      <a href="menupage.html" class="nav-link active">Menu</a>
+      <a href="./menupage.html" class="nav-link">Menu</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
     <button  onclick="document.location='reserve.html'" class="reserve-button"><b>Reserve</b></button>
-    
     <button id="navToggle" class="md:hidden flex items-center justify-center p-2 rounded-lg ml-auto" aria-label="Toggle menu">
       <span class="sr-only">Open menu</span>
       <div class="hamburger" aria-hidden="true">
@@ -566,94 +526,116 @@
     style="z-index:999;">
     <div class="flex flex-col items-center justify-center min-h-screen space-y-8">
       <a href="homepage.html" class="nav-link text-2xl">Home</a>
-      <a href="menupage.html" class="nav-link text-2xl">Menu</a>
+      <a href="./menupage.html" class="nav-link text-2xl">Menu</a>
       <a href="#about" class="nav-link text-2xl">About</a>
       <a href="#contact" class="nav-link text-2xl">Contact</a>
       <button onclick="document.location='reserve.html'" class="mob-reserve-button"><b>Reserve</b></button>
       <button id="navClose" class="mt-12 text-3xl text-white hover:text-orange-400 focus:outline-none" aria-label="Close menu"><i class="fas fa-times"></i></button>
+
     </div>
   </div>
 </nav>
- <section id="signdish" class="section bg-black bg-opacity-50" >
-    <div class="container mx-auto px-6">
-      <h2 class="section-title animate-on-scroll">Signature Dishes</h2>
-      <div class="menu-carousel">
-        <div class="menu-item animate-on-scroll">
-          <div class="menu-item-image">
-            <img src="abc" alt="Butter Chicken">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-name">Butter Chicken</h3>
-            <p class="text-sm text-gray-300 mb-2">Tender chicken in rich tomato cream sauce</p>
-          </div>
-        </div>
-        <div class="menu-item animate-on-scroll">
-          <div class="menu-item-image">
-            <img src="abc" alt="Tandoori Platter">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-name">Tandoori Platter</h3>
-            <p class="text-sm text-gray-300 mb-2">Mixed grilled meats from our clay oven</p>
-          </div>
-        </div>
-        <div class="menu-item animate-on-scroll">
-          <div class="menu-item-image">
-            <img src="abc" alt="Dal Makhani">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-name">Dal Makhani</h3>
-            <p class="text-sm text-gray-300 mb-2">Creamy black lentils slow-cooked overnight</p>
-          </div>
-        </div>
-        <div class="menu-item animate-on-scroll">
-          <div class="menu-item-image">
-            <img src="abc" alt="Garlic Naan">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-name">Garlic Naan</h3>
-            <p class="text-sm text-gray-300 mb-2">Fresh baked bread with aromatic garlic</p>
-          </div>
-        </div>
-        <div class="menu-item animate-on-scroll">
-          <div class="menu-item-image">
-            <img src="jdus" alt="Biryani">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-name">Hyderabadi Biryani</h3>
-            <p class="text-sm text-gray-300 mb-2">Fragrant rice with layers of spiced meat</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="pt-40 px-4 pb-20 max-w-6xl mx-auto text-center">
-    <h2 class="section-title animate-on-scroll">Our Menu</h2>
-    <div class="menus animate-on-scroll">
-      <div style="width: 45%; height:auto; margin:0 auto">
-        <img src="https://static.wixstatic.com/media/80ddee_dc5886988699498bb0ddd65199e1fa92~mv2.png/v1/fill/w_549,h_842,al_c,q_90,enc_avif,quality_auto/80ddee_dc5886988699498bb0ddd65199e1fa92~mv2.png" 
-             alt="Menu Poster" 
-             class="w-full shadow-lg object-cover" />
-             <p class="menutext">MENU 2</p>
-             <a href="menu.html" class="menubutton 1">
-              Book Now
-           </a>
-      </div>
-  
-      <div style="width: 45%; height:auto ; margin:0 auto">
-        <img src="https://static.wixstatic.com/media/80ddee_dc5886988699498bb0ddd65199e1fa92~mv2.png/v1/fill/w_549,h_842,al_c,q_90,enc_avif,quality_auto/80ddee_dc5886988699498bb0ddd65199e1fa92~mv2.png" 
-             alt="Food Dish" 
-             class="w-full shadow-lg object-cover" />
-             <p class="menutext">MENU 2</p>
-             <a href="menu.html" class="menubutton 2">
-              View Full Menu
-           </a>
-      </div>
-  
+<section class="section" id="reserve-form">
+    <div class="animate-on-scroll">
+        <h2 class="section-title animate-on-scroll">Reserve A Table</h2>
+        <form id="booking">
+            <fieldset class="contact">
+                <legend class="text-4xl font-semibold mb-6" style="color: var(--accent-gold);">Contact Details</legend>
+
+                <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Title</label><br>
+                <div style="display:flex;justify-content:space-between;width:30%">
+                    
+                    <label class="text-2xl font-semibold mb-6" for="mr"><input type="radio" id="title" name="title" value="Mr." required> Mr.</label>
+                    <label class="text-2xl font-semibold mb-6" for="mrs"><input type="radio" id="title" name="title" value="Mrs."> Mrs.</label>
+                    <label class="text-2xl font-semibold mb-6" for="mx"><input type="radio" id="title" name="title" value="Mx."> Mx.</label>
+                </div>
+<br>
+                <div style="display:flex;justify-content:space-between;width:50%">
+                    <div>
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">First Name</label>
+                    <input id="fname" name="fname" style="background-color:#181818;width:80%;border:1px solid white;border-radius:8px" type="text" required>
+                    </div>
+                    <div>
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Last Name</label>
+                    <input id="lname" name="lname" style="background-color:#181818;width:80%;border:1px solid white;border-radius:8px" type="text">
+                    </div>
+                </div>
+<br><br>
+                <div>
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Phone</label>
+                    <input id="phone" name="phone" type="tel" style="background-color:#181818;width:20%;border:1px solid white;border-radius:8px" required>
+                </div>
+<br><br>
+                <div>
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Email</label>
+                    <input id="email" name="email" type="email" style="background-color:#181818;width:20%;border:1px solid white;border-radius:8px" required>
+                </div>
+<br><br>
+            </fieldset>
+<br><br>
+            <fieldset>
+                <legend class="text-4xl font-semibold mb-6" style="color: var(--accent-gold);">Reservation Details</legend>
+                <div style="display:flex;justify-content: space-between;width: 30%;">
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Number of Guests</label>
+                    <select  id="guests" name="guests" class="text-2xl font-semibold mb-6" style="background-color: black;border:1px solid orange">
+                        <option value="" disabled selected>Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+<br><br>
+                <div style="display:flex;justify-content: space-between;width: 35%;">
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Date of Reservation</label>
+                    <input id="date" name="date" type="date" style="background-color:#181818;border:1px solid white;border-radius:8px">
+                </div>
+<br><br>
+                <div style="display:flex;justify-content: space-between;width: 35%;">
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Time of Reservation</label>
+                    <select id="time" name="time" class="text-2xl font-semibold mb-6" style="background-color: black;border:1px solid orange">
+                        <option value="" disabled selected>Select</option>
+                        <option value="09:00">9:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                        <option value="17:00">5:00 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                        <option value="19:00">7:00 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                        <option value="21:00">9:00 PM</option>
+                    </select>
+                </div>
+<br><br>
+                <div>
+                    <label class="text-2xl font-semibold mb-6" style="color: var(--accent-gold);">Comments, dietary preferences or restrictions
+(optional)</label><br>
+                    <textarea id="instructions" name="instructions" rows=4 cols=50 style="background-color:#181818;border:1px solid white;border-radius:8px;resize:both"></textarea>
+                </div>
+            </fieldset>
+<br><br>            
+            <div style="text-align: center;"><input style="text-align: center;font-size: x-large;font-weight: bold;" type="submit" id="submit" value="Book My Reservation" class="reserve-button"></div>
+        </form>
     </div>
-  </section>
-  
-    <section id="contact" class="section">
+</section>
+
+  <section id="contact" class="section">
     <div class="container mx-auto px-6">
       <h2 class="section-title animate-on-scroll">Visit Us Today</h2>
       <div class="contact-grid">
@@ -810,7 +792,22 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 90) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 });
-</script>
 
+document.getElementById('booking').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  const tt = document.getElementById('title').value;
+  const f = document.getElementById('fname').value;
+  const l = document.getElementById('lname').value;
+  const ph = document.getElementById('phone').value;
+  const mail = document.getElementById('email').value;
+  const gu = document.getElementById('guests').value;
+  const dt = document.getElementById('date').value;
+  const ti = document.getElementById('time').value;
+  const ins = document.getElementById('instructions').value;
+
+  console.log(tt,f,l,ph,mail,gu,dt,ti,ins);
+});
+</script>
 </body>
 </html>

@@ -69,11 +69,14 @@
     }
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    .reserve-button{
+    .reserve-button, .mob-reserve-button{
       background-color: #ff6b35;
       padding: 12px;
       border-radius: 50px;
       font-family: 'Inter', sans-serif;
+    }
+    .reserve-button :hover{
+        color: black;
     }
 
     .hero-bg-scroll {
@@ -482,6 +485,11 @@
   .navbar .container { padding-left: 1.1rem; padding-right: 1.1rem; }
   .hidden.md\:flex { display: none !important; }
 }
+@media (max-width: 768px){
+  .reserve-button{
+    visibility: hidden;
+  }
+}
 
   </style>
 </head>
@@ -497,7 +505,6 @@
       <a href="homepage.html" class="nav-link active">Home</a>
       <a href="./menupage.html" class="nav-link">Menu</a>
       <a href="#about" class="nav-link">About</a>
-      <a href="#testimonials" class="nav-link">Reviews</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
     <button  onclick="document.location='reserve.html'" class="reserve-button"><b>Reserve</b></button>
@@ -516,8 +523,8 @@
       <a href="homepage.html" class="nav-link text-2xl">Home</a>
       <a href="./menupage.html" class="nav-link text-2xl">Menu</a>
       <a href="#about" class="nav-link text-2xl">About</a>
-      <a href="#testimonials" class="nav-link text-2xl">Reviews</a>
       <a href="#contact" class="nav-link text-2xl">Contact</a>
+      <button onclick="document.location='reserve.html'" class="mob-reserve-button"><b>Reserve</b></button>
       <button id="navClose" class="mt-12 text-3xl text-white hover:text-orange-400 focus:outline-none" aria-label="Close menu"><i class="fas fa-times"></i></button>
 
     </div>
@@ -539,7 +546,7 @@
 </section>
 
 <br><br>
-<section id="description" class="desc">
+<section id="description" class="section">
 <div class="description">
   <img style="float:left" src="https://jfwonline.com/wp-content/uploads/2023/08/F2926F89-4312-4CD7-A6DD-AF537FB5300A.jpeg" alt="Kallu Photo">
   <p >Hi this is Description</p>
@@ -623,7 +630,7 @@
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
             <a href="#" class="social-link"><i class="fab fa-google"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-tripadvisor"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-tripadvisor"></i></a>
           </div>
         </div>
         <div class="map-container animate-on-scroll">
